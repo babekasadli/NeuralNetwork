@@ -4,6 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
+    "predeploy": "npm i && npm run build",
+    "deploy": "npm run serve",
     "clean": "rimraf dist",
     "start": "npm run serve-watch",
     "prep": "copyfiles analytics.js dist && concat node_modules/material-design-lite/material.min.js node_modules/seedrandom/seedrandom.min.js > dist/lib.js",
@@ -17,6 +19,7 @@
     "watch": "npm run prep && concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-html\"",
     "serve": "npx serve dist/",
     "serve-watch": "concurrently \"npx serve dist/\" \"npm run watch\""
+    
   },
   "devDependencies": {
     "@types/d3": "^3.5.34",
